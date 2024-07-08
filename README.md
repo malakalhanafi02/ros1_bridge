@@ -1,6 +1,19 @@
 # ros1_bridge
 The ros1_bridge package allows for communication between ROS1 and ROS2 systems. This task involves setting up the bridge to relay topics from ROS1 Noetic to ROS2 Foxy.
 
+---
+
+<img width="1113" alt="image" src="https://github.com/malakalhanafi02/ros1_bridge/assets/122760944/d0dd863e-6f85-4435-b1d5-2f2635e214f5">
+
+The image shows the following:
+
+1. Terminal 1: ROS1 nodes running and receiving messages from the ROS2 bridge.
+2. Terminal 2: ROS2 bridge running and handling the messages.
+3. Terminal 3: Publishing messages from ROS2 to ROS1.
+4. Terminal 4: Listening to the ROS1 topic and successfully echoing the messages published from ROS2.
+
+---
+
 1. Install colcon:
 
    - Update your package index:
@@ -81,6 +94,9 @@ sudo apt install python3-colcon-common-extensions python3-ament-package
 cd ~/ros1_bridge_ws
 colcon build --packages-select ros1_bridge --cmake-force-configure --cmake-args -DBUILD_TESTING=FALSE
 ```
+
+<img width="1279" alt="image" src="https://github.com/malakalhanafi02/ros1_bridge/assets/122760944/acdfa0c0-d3db-494f-93f4-372dcbdedd63">
+
 6. Test the bridge:
 ```bash
 source install/local_setup.bash
@@ -96,7 +112,9 @@ rostopic list
 
 <img width="1024" alt="image" src="https://github.com/malakalhanafi02/ros1_bridge/assets/122760944/c277e496-63a3-4fe4-a8d8-7bea3d2ecd24">
 
-ERRORS: 
+
+---
+
 
 # Running ros1_bridge
 After launching the _check_motors.launch_ file and have the robot arm running in ROS1, you need to set up the _ros1_bridge_ and run it to ensure communication between ROS1 and ROS2.
@@ -113,4 +131,5 @@ ros2 run ros1_bridge dynamic_bridge
 source /opt/ros/foxy/setup.bash
 ros2 topic echo /joint_states sensor_msgs/msg/JointState
 ```
+
 
